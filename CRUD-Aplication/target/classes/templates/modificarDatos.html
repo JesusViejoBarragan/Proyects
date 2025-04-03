@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Perfil</title>
+    <link href="/css/modificarDatos.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Editar Perfil</h1>
+
+    <!-- Mensajes de feedback -->
+    <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+    <div th:if="${exito}" class="alert alert-success" th:text="${exito}"></div>
+
+    <form th:action="@{/modificarPerfil}" method="post">
+        <!-- Sección de datos básicos -->
+        <div class="form-group">
+            <label>Usuario</label>
+            <input
+                    type="text"
+                    th:value="${persona.usuario}"
+                    readonly
+                    class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Nombre</label>
+            <input
+                    type="text"
+                    th:value="${persona.nombre}"
+                    name="nombre"
+                    class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label>Apellidos</label>
+            <input
+                    type="text"
+                    th:value="${persona.apellidos}"
+                    name="apellidos"
+                    class="form-control">
+        </div>
+
+        <!-- Sección de cambio de contraseña -->
+        <h3>Cambiar Contraseña</h3>
+
+        <div class="form-group">
+            <label>Contraseña Actual</label>
+            <div class="password-container">
+                <input
+                        type="password"
+                        id="contraseñaActual"
+                        name="contraseñaActual"
+                        placeholder="Ingresa tu contraseña actual"
+                        class="form-control">
+                <span class="toggle-password" onclick="togglePassword('contraseñaActual')">👁️</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Nueva Contraseña</label>
+            <div class="password-container">
+                <input
+                        type="password"
+                        id="nuevaContraseña"
+                        name="nuevaContraseña"
+                        placeholder="Mínimo 8 caracteres"
+                        class="form-control">
+                <span class="toggle-password" onclick="togglePassword('nuevaContraseña')">👁️</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Confirmar Nueva Contraseña</label>
+            <div class="password-container">
+                <input
+                        type="password"
+                        id="confirmarContraseña"
+                        name="confirmarContraseña"
+                        placeholder="Repite la nueva contraseña"
+                        class="form-control">
+                <span class="toggle-password" onclick="togglePassword('confirmarContraseña')">👁️</span>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <button type="submit" class="btn btn-save">Guardar Cambios</button>
+        <form th:action="@{/perfil}" method="get" style="display: inline;">
+            <button type="submit" class="btn btn-cancel">Cancelar</button>
+        </form>
+    </form>
+</div>
+
+<!-- Script para mostrar/ocultar contraseña -->
+<script>
+    function togglePassword(fieldId) {
+        const field = document.getElementById(fieldId);
+        if (field) {
+            field.type = field.type === 'password' ? 'text' : 'password';
+        }
+    }
+</script>
+</body>
+</html>

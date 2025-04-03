@@ -1,0 +1,9 @@
+com\pruebaAPI\restapi\service\PersonaService.class
+com\pruebaAPI\restapi\controller\UserController.class
+com\pruebaAPI\restapi\repository\PersonaRepository.class
+com\pruebaAPI\restapi\repository\PersonaRegistroRepository.class
+com\pruebaAPI\restapi\controller\PersonaController.class
+com\pruebaAPI\restapi\service\PersonaRegistroService.class
+com\pruebaAPI\restapi\domain\model\Persona.class
+com\pruebaAPI\restapi\domain\model\PersonaRegistro.class
+com\pruebaAPI\restapi\RestapiApplication.class

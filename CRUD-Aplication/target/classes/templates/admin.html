@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link href="/css/admin.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+<div class="wave"></div>
+<div class="container">
+    <h1>Panel de Administración</h1>
+
+    <div class="table-container">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="persona : ${personas}">
+                <td th:text="${persona.id}">1</td>
+                <td th:text="${persona.usuario}">admin</td>
+                <td th:text="${persona.nombre}">Administrador</td>
+                <td th:text="${persona.apellidos}">Sistema</td>
+                <td th:text="${persona.rol}">Rol</td>
+
+                <td class="actions">
+                    <!--
+                    <button class="btn btn-edit"
+                            th:onclick="'editarUsuario(' + ${persona.id} + ')'">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn btn-delete"
+                            th:onclick="'confirmarEliminar(' + ${persona.id} + ')'">
+                            <i class="bi bi-trash"></i>
+                    </button>
+                    -->
+                    <form th:action="@{/admin/seleccionarUsuario}" method="post" style="display: inline;">
+                        <input type="hidden" name="id" th:value="${persona.id}">
+                        <button type="submit" class="btn btn-edit" title="Editar usuario">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </form>
+
+                    <form th:action="@{/admin}" method="post">
+                        <input type="hidden" name="id" th:value="${persona.id}">
+                        <button type="submit" class="btn btn-delete" onclick="return confirm('¿Estás seguro?')">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="buttons">
+        <button class="btn btn-add" onclick="location.href='/registro'">
+            <i class="bi bi-plus-circle"></i> Añadir Usuario
+        </button>
+        <button class="btn btn-back" onclick="location.href='/'">
+            <i class="bi bi-house"></i> Volver
+        </button>
+    </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal" id="confirmModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Confirmar acción</h3>
+        </div>
+        <div class="modal-body">
+            ¿Estás seguro de que deseas eliminar este usuario?
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-cancel" onclick="cerrarModal()">Cancelar</button>
+            <button class="btn btn-confirm" id="confirmDelete">Eliminar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let usuarioIdAEliminar = null;
+
+    function editarUsuario(id) {
+        window.location.href = '/admin/editar/' + id;
+    }
+
+    function confirmarEliminar(id) {
+        usuarioIdAEliminar = id;
+        document.getElementById('confirmModal').style.display = 'flex';
+    }
+
+    function cerrarModal() {
+        document.getElementById('confirmModal').style.display = 'none';
+    }
+
+    document.getElementById('confirmDelete').addEventListener('click', function() {
+        if (usuarioIdAEliminar) {
+            fetch('/admin/eliminar/' + usuarioIdAEliminar, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Error al eliminar el usuario');
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

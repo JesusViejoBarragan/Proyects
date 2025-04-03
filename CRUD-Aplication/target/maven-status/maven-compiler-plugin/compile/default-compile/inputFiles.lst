@@ -1,0 +1,9 @@
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\controller\PersonaController.java
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\controller\UserController.java
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\domain\model\Persona.java
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\domain\model\PersonaRegistro.java
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\repository\PersonaRegistroRepository.java
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\repository\PersonaRepository.java
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\RestapiApplication.java
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\service\PersonaRegistroService.java
+E:\Spring\restapi\src\main\java\com\pruebaAPI\restapi\service\PersonaService.java

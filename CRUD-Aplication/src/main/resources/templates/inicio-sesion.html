@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | Mi App</title>
+    <!-- Enlace al CSS -->
+    <link href="/css/inicioSesion.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Iniciar Sesión</h1>
+
+    <!-- Formulario con los nombres de campos que necesitas -->
+    <form th:action="@{/inicioSesion}" method="post">
+        <!-- Campo de USUARIO -->
+        <div class="form-group">
+            <label for="usuario">Usuario</label>
+            <input type="text" id="usuario" name="usuario" required
+                   placeholder="Ej: juan123" autofocus>
+        </div>
+
+        <!-- Campo de CONTRASEÑA -->
+        <div class="form-group">
+            <label for="contraseña">Contraseña</label>
+            <div class="password-container">
+                <input type="password" id="contraseña" name="contraseña" required
+                       placeholder="Escribe tu contraseña">
+                <span class="toggle-password" onclick="togglePassword('contraseña')">👁️</span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-login">Ingresar</button>
+    </form>
+
+    <!-- Botón para ir a registro -->
+    <button class="btn btn-register" onclick="location.href='/registro'">
+        ¿No tienes cuenta? Regístrate
+    </button>
+</div>
+<div class="wave"></div>
+
+<!-- Script para mostrar/ocultar contraseña -->
+<script>
+    function togglePassword(fieldId) {
+        const field = document.getElementById(fieldId);
+        field.type = field.type === 'password' ? 'text' : 'password';
+    }
+</script>
+</body>
+</html>
