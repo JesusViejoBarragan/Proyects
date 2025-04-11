@@ -47,9 +47,35 @@ We've waived the "old password" requirement for your convenience.
 Pro tip: Update your info regularly to keep your account fresh! 🌟
 </p>
 <img src="https://i.imgur.com/Z8EPlaU.png">
+<p>
+  <b>Admin Exclusive Access</b> 🔒⚡
+Welcome to your Command Center!
 
+As an administrator, you have full control to:
+👥 View all registered accounts (Full visibility)
+🆕 Create new user accounts (Instant access setup)
+❌ Delete existing accounts (With responsible oversight)
+🛠️ Assign user roles (Customize permissions as needed)
+</p>
 <img src="https://i.imgur.com/xJwcAp3.png">
+<p>
+  <b>User Management Console</b>
+(Admin Privileges Required)
 
+🔧 Role Modification Hub
+
+Edit any user's profile data
+
+Upgrade/downgrade account roles
+
+Changes apply in real-time
+
+🚪 Access Restrictions:
+
+Exclusively available via Admin Dashboard
+
+Requires verified admin credentials
+</p>
 <img src="https://i.imgur.com/OLW2xiZ.png">
 
 
