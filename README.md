@@ -77,7 +77,31 @@ Exclusively available via Admin Dashboard
 Requires verified admin credentials
 </p>
 <img src="https://i.imgur.com/OLW2xiZ.png">
+<p>
+  🚀 <b>Final Project Summary & Farewell</b>
 
+📌 Technical Stack:
+
+Backend: Developed with Java + Spring Boot (robust and scalable)
+
+Database: MongoDB (flexible NoSQL structure)
+
+Security: BCrypt password hashing (industry-standard encryption)
+
+🔒 Key Security Feature:
+All passwords are safely encrypted (never stored as plain text), ensuring user data protection.
+
+🌐 Project Scope:
+
+User authentication (login/register)
+
+Role-based access control (admin/user)
+
+CRUD operations with secure data handling
+
+🙏 Thank You!
+It’s been a pleasure working on this project! If you have any questions or need future enhancements, just let me know. Happy coding! 💻✨
+</p>
 
 
 
