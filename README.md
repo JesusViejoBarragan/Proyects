@@ -99,7 +99,7 @@ Role-based access control (admin/user)
 
 CRUD operations with secure data handling
 
-🙏 Thank You for watching!
+🙏 Thank You!
 It’s been a pleasure to show this project! If you have any questions or need future enhancements, just let me know. 💻✨
 </p>
 
